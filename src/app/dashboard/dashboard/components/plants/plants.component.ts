@@ -1,33 +1,20 @@
 import { Component } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
+import { FormControl } from '@angular/forms';
+import { ApiService } from 'src/app/service/api.service';
+import { MatDialog } from '@angular/material/dialog';
+import { PlantDialogComponent } from '../plant-dialog/plant-dialog.component';
 
 @Component({
   selector: 'app-plants',
   templateUrl: './plants.component.html',
-  styleUrls: ['./plants.component.scss']
+  styleUrls: ['./plants.component.scss'],
 })
 export class PlantsComponent {
-  /** Based on the screen size, switch from standard to one column per row */
-  cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
-    map(({ matches }) => {
-      if (matches) {
-        return [
-          { title: 'Card 1', cols: 1, rows: 1 },
-          { title: 'Card 2', cols: 1, rows: 1 },
-          { title: 'Card 3', cols: 1, rows: 1 },
-          { title: 'Card 4', cols: 1, rows: 1 }
-        ];
-      }
-
-      return [
-        { title: 'Card 1', cols: 2, rows: 1 },
-        { title: 'Card 2', cols: 1, rows: 1 },
-        { title: 'Card 3', cols: 1, rows: 2 },
-        { title: 'Card 4', cols: 1, rows: 1 }
-      ];
-    })
-  );
-
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(private matDialog: MatDialog) {}
+  public plantenList: any;
+  openPlantDialog() {
+    this.matDialog.open(PlantDialogComponent);
+  }
 }

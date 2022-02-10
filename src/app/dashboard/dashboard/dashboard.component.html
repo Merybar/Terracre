@@ -1,6 +1,6 @@
 <app-header (toggledEvent)="drawer.toggle()"></app-header>
 
-<mat-drawer-container class="example-container" autosize>
+<mat-drawer-container class="example-container" autosize >
     <mat-drawer #drawer class="example-sidenav" mode="side">
         <mat-nav-list>
                 <a mat-list-item routerLinkActive="list-item-active" routerLink="tuin">
@@ -16,8 +16,8 @@
         </mat-nav-list>
     </mat-drawer>
 
-    <div class="example-sidenav-content">
-        <mat-card class="main-content">
+    <div class="example-sidenav-content" >
+        <mat-card class="main-content" >
             <mat-card-content>
                 <router-outlet></router-outlet>
             </mat-card-content>

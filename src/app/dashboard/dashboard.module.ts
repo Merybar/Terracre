@@ -17,12 +17,16 @@ import { PlantsComponent } from './dashboard/components/plants/plants.component'
 import { CommunityComponent } from './dashboard/components/community/community.component';
 import { NotesComponent } from './dashboard/components/notes/notes.component';
 import { AlarmsComponent } from './dashboard/components/alarms/alarms.component';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatDialogModule } from '@angular/material/dialog';
+import { PlantDialogComponent } from './dashboard/components/plant-dialog/plant-dialog.component';
 
 const routes: Routes = [
   {
     path: '',
     component: DashboardComponent,
     children: [
+      { path: '', redirectTo: '/dashboard/tuin', pathMatch: 'full' },
       {
         path: 'tuin',
         component: GardenComponent,
@@ -56,6 +60,7 @@ const routes: Routes = [
     CommunityComponent,
     NotesComponent,
     AlarmsComponent,
+    PlantDialogComponent,
   ],
   imports: [
     CommonModule,
@@ -69,6 +74,8 @@ const routes: Routes = [
     MatCardModule,
     MatGridListModule,
     LayoutModule,
+    MatAutocompleteModule,
+    MatDialogModule,
   ],
 })
 export class DashboardModule {}

@@ -2,6 +2,7 @@ mat-toolbar {
     position: sticky;
     top: 0;
     z-index: 100;
+    color: white;
 }
 
 ul {
@@ -18,14 +19,14 @@ button {
     font-size: 14px;
 }
 mat-toolbar {
-    background: #f7f7f7;
+    background: #013113;
 }
 .user-image {
     border-radius: 50%;
     width: 50px;
     height: 50px;
     background-color: white;
-    margin-bottom: 8px;
+    margin-bottom: 1px;
     &-icon {
     height: 18px;
     font-size: 16px;
@@ -36,7 +37,17 @@ mat-toolbar {
 ::ng-deep {
     .mat-menu-content {
     width: 160px;
+    background-color: #8B900B;
     }
+}
+.mat-icon{
+    color: #efefef;
+}
+.mat-menu-item{
+    color: #efefef;
+}
+.mat-menu-item:hover {
+    background-color: #013113;
 }
 mat-drawer-container{
 height: 100vh;
