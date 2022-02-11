@@ -3,6 +3,7 @@ mat-toolbar {
     top: 0;
     z-index: 100;
     color: white;
+    height: 10%;
 }
 
 ul {
@@ -49,6 +50,6 @@ mat-toolbar {
 .mat-menu-item:hover {
     background-color: #013113;
 }
-mat-drawer-container{
-height: 100vh;
-}
+// mat-drawer-container{
+// height: 100vh;
+// }

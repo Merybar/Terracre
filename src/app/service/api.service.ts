@@ -13,11 +13,13 @@ const httpOptions = {
   providedIn: 'root',
 })
 export class ApiService {
-  url: string = 'http://th300.be/api/';
+  plantsUrl: string = '';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    this.plantsUrl = 'http://the300.be/api/plants';
+  }
 
   getPlanten(): Observable<PlantsModule[]> {
-    return this.http.get<PlantsModule[]>(this.url + 'plants').pipe();
+    return this.http.get<PlantsModule[]>('http://the300.be/api/plants').pipe();
   }
 }

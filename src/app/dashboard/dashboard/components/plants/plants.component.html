@@ -1,200 +1,27 @@
 <div class="container-fluid">
   <div class="input-group">
-    <input type="search" class="form-control rounded" placeholder="zoeken" aria-label="Search" aria-describedby="search-addon" />
-    <button type="button" class="btn">zoeken</button>
+    <input #PlantName type="search" class="form-control rounded" placeholder="zoeken" aria-label="Search" aria-describedby="search-addon" />
+    <button type="button" class="btn" (click)="searchPlant(PlantName.value)">zoeken</button>
   </div>
   <div class="container">
     <div class="row justify-content-center">
-      <div class="card col-md-4 col-xl-3">
-        <div class="card-header"><h2 class="card-title">Aalbes</h2>
-        </div>
-        <img class="card-img-top img-responsive" src="./assets/plantsImages/aalbes.jpg" alt="aalbes.jpg">
-        <div class="card-body">
-          <small>level</small>
-          <div >
-            <ul> 
-              <li><img class="icon" src="../../../../../assets/icons/bemesting.png" alt="bemestingIcon">Elke 4 dagen</li>
-              <li><img class="icon" src="../../../../../assets/icons/water.png" alt="waterIcon">Elke 4 dagen</li>
-              <li><img class="icon" src="../../../../../assets/icons/sun.png" alt="sunIcon">7 uur per dag</li>
-            </ul>
+      <ng-container *ngFor="let plant of plants$">
+        <div class="card col-md-4 col-xl-3">
+          <div class="card-header"><h2 class="card-title">{{plant.name}}</h2>
           </div>
-          <button class="btn" (click)="openPlantDialog()" >meer info</button>
-        </div>
-      </div>
-
-      <div class="card col-md-4 col-xl-3">
-        <div class="card-header"><h2 class="card-title">Aalbes</h2>
-        </div>
-        <img class="card-img-top img-responsive" src="./assets/plantsImages/aalbes.jpg" alt="aalbes.jpg">
-        <div class="card-body">
-          <small>level</small>
-          <div >
-            <ul> 
-              <li><img class="icon" src="../../../../../assets/icons/bemesting.png" alt="bemestingIcon">Elke 4 dagen</li>
-              <li><img class="icon" src="../../../../../assets/icons/water.png" alt="waterIcon">Elke 4 dagen</li>
-              <li><img class="icon" src="../../../../../assets/icons/sun.png" alt="sunIcon">7 uur per dag</li>
-            </ul>
-          </div>
-          <button class="btn" (click)="openPlantDialog()" >meer info</button>
-        </div>
-      </div>
-
-      <div class="card col-md-4 col-xl-3">
-        <div class="card-header"><h2 class="card-title">Aalbes</h2>
-        </div>
-        <img class="card-img-top img-responsive" src="./assets/plantsImages/aalbes.jpg" alt="aalbes.jpg">
-        <div class="card-body">
-          <small>level</small>
-          <div >
-            <ul> 
-              <li><img class="icon" src="../../../../../assets/icons/bemesting.png" alt="bemestingIcon">Elke 4 dagen</li>
-              <li><img class="icon" src="../../../../../assets/icons/water.png" alt="waterIcon">Elke 4 dagen</li>
-              <li><img class="icon" src="../../../../../assets/icons/sun.png" alt="sunIcon">7 uur per dag</li>
-            </ul>
-          </div>
-          <button class="btn" (click)="openPlantDialog()" >meer info</button>
-        </div>
-      </div>
-
-      <div class="card col-md-4 col-xl-3">
-        <div class="card-header"><h2 class="card-title">Aalbes</h2>
-        </div>
-        <img class="card-img-top img-responsive" src="./assets/plantsImages/aalbes.jpg" alt="aalbes.jpg">
-        <div class="card-body">
-          <small>level</small>
-          <div >
-            <ul> 
-              <li><img class="icon" src="../../../../../assets/icons/bemesting.png" alt="bemestingIcon">Elke 4 dagen</li>
-              <li><img class="icon" src="../../../../../assets/icons/water.png" alt="waterIcon">Elke 4 dagen</li>
-              <li><img class="icon" src="../../../../../assets/icons/sun.png" alt="sunIcon">7 uur per dag</li>
-            </ul>
-          </div>
-          <button class="btn" (click)="openPlantDialog()" >meer info</button>
-        </div>
-      </div>
-
-      <div class="card col-md-4 col-xl-3">
-        <div class="card-header"><h2 class="card-title">Aalbes</h2>
-        </div>
-        <img class="card-img-top img-responsive" src="./assets/plantsImages/aalbes.jpg" alt="aalbes.jpg">
-        <div class="card-body">
-          <small>level</small>
-          <div >
-            <ul> 
-              <li><img class="icon" src="../../../../../assets/icons/bemesting.png" alt="bemestingIcon">Elke 4 dagen</li>
-              <li><img class="icon" src="../../../../../assets/icons/water.png" alt="waterIcon">Elke 4 dagen</li>
-              <li><img class="icon" src="../../../../../assets/icons/sun.png" alt="sunIcon">7 uur per dag</li>
-            </ul>
-          </div>
-          <button class="btn" (click)="openPlantDialog()" >meer info</button>
-        </div>
-      </div>
-
-      <div class="card col-md-4 col-xl-3">
-        <div class="card-header"><h2 class="card-title">Aalbes</h2>
-        </div>
-        <img class="card-img-top img-responsive" src="./assets/plantsImages/aalbes.jpg" alt="aalbes.jpg">
-        <div class="card-body">
-          <small>level</small>
-          <div >
-            <ul> 
-              <li><img class="icon" src="../../../../../assets/icons/bemesting.png" alt="bemestingIcon">Elke 4 dagen</li>
-              <li><img class="icon" src="../../../../../assets/icons/water.png" alt="waterIcon">Elke 4 dagen</li>
-              <li><img class="icon" src="../../../../../assets/icons/sun.png" alt="sunIcon">7 uur per dag</li>
-            </ul>
-          </div>
-          <button class="btn" (click)="openPlantDialog()" >meer info</button>
-        </div>
-      </div>
-
-      <div class="card col-md-4 col-xl-3">
-        <div class="card-header"><h2 class="card-title">Aalbes</h2>
-        </div>
-        <img class="card-img-top img-responsive" src="./assets/plantsImages/aalbes.jpg" alt="aalbes.jpg">
-        <div class="card-body">
-          <small>level</small>
-          <div >
-            <ul> 
-              <li><img class="icon" src="../../../../../assets/icons/bemesting.png" alt="bemestingIcon">Elke 4 dagen</li>
-              <li><img class="icon" src="../../../../../assets/icons/water.png" alt="waterIcon">Elke 4 dagen</li>
-              <li><img class="icon" src="../../../../../assets/icons/sun.png" alt="sunIcon">7 uur per dag</li>
-            </ul>
-          </div>
-          <button class="btn" (click)="openPlantDialog()" >meer info</button>
-        </div>
-      </div>
-
-      <div class="card col-md-4 col-xl-3">
-        <div class="card-header"><h2 class="card-title">Aalbes</h2>
-        </div>
-        <img class="card-img-top img-responsive" src="./assets/plantsImages/aalbes.jpg" alt="aalbes.jpg">
-        <div class="card-body">
-          <small>level</small>
-          <div >
-            <ul> 
-              <li><img class="icon" src="../../../../../assets/icons/bemesting.png" alt="bemestingIcon">Elke 4 dagen</li>
-              <li><img class="icon" src="../../../../../assets/icons/water.png" alt="waterIcon">Elke 4 dagen</li>
-              <li><img class="icon" src="../../../../../assets/icons/sun.png" alt="sunIcon">7 uur per dag</li>
-            </ul>
-          </div>
-          <button class="btn" (click)="openPlantDialog()" >meer info</button>
-        </div>
-      </div>
-
-      <div class="card col-md-4 col-xl-3">
-        <div class="card-header"><h2 class="card-title">Aalbes</h2>
-        </div>
-        <img class="card-img-top img-responsive" src="./assets/plantsImages/aalbes.jpg" alt="aalbes.jpg">
-        <div class="card-body">
-          <small>level</small>
-          <div >
-            <ul> 
-              <li><img class="icon" src="../../../../../assets/icons/bemesting.png" alt="bemestingIcon">Elke 4 dagen</li>
-              <li><img class="icon" src="../../../../../assets/icons/water.png" alt="waterIcon">Elke 4 dagen</li>
-              <li><img class="icon" src="../../../../../assets/icons/sun.png" alt="sunIcon">7 uur per dag</li>
-            </ul>
-          </div>
-          <button class="btn" (click)="openPlantDialog()" >meer info</button>
-        </div>
-      </div>
-
-      <div class="card col-md-4 col-xl-3">
-        <div class="card-header"><h2 class="card-title">Aalbes</h2>
-        </div>
-        <img class="card-img-top img-responsive" src="./assets/plantsImages/aalbes.jpg" alt="aalbes.jpg">
-        <div class="card-body">
-          <small>level</small>
-          <div >
-            <ul> 
-              <li><img class="icon" src="../../../../../assets/icons/bemesting.png" alt="bemestingIcon">Elke 4 dagen</li>
-              <li><img class="icon" src="../../../../../assets/icons/water.png" alt="waterIcon">Elke 4 dagen</li>
-              <li><img class="icon" src="../../../../../assets/icons/sun.png" alt="sunIcon">7 uur per dag</li>
-            </ul>
-          </div>
-          <button class="btn" (click)="openPlantDialog()" >meer info</button>
-        </div>
-      </div>
-</div>
-<!-- <div class="container-fluid">
-  <div class="input-group">
-    <input type="search" class="form-control rounded" placeholder="zoeken" aria-label="Search" aria-describedby="search-addon" />
-    <button type="button" class="btn btn-outline-primary">zoeken</button>
-  </div>
-  <div class="container">
-    <div class="row">
-        <ng-container *ngFor="let plant of plantenList">
-            <div class="card col-md-3">
-              <div class="card-header">
-                <small class="text-muted">level</small>
-              </div>
-              <img class="card-img-top img-responsive" src="./assets/plantsImages/{{plant.image}}" alt="{{plant.image}}">
-              <div class="card-body">
-                <h5 class="card-title">{{plant.name}}</h5>
-                <div class="mb-3"><span>A</span><span>A</span><span>A</span></div>
-                <button href="#" class="btn btn-primary">Go somewhere</button>
-              </div>
+          <img class="card-img-top img-responsive" src="./assets/plantsImages/{{plant.image}}" alt="{{plant.name}}">
+          <div class="card-body">
+            <small>{{plant.level}}</small>
+            <div >
+              <ul> 
+                <li><img class="icon" src="../../../../../assets/icons/bemesting.png" alt="bemestingIcon">Elke {{plant.fertilizer_day}} dagen</li>
+                <li><img class="icon" src="../../../../../assets/icons/water.png" alt="waterIcon">Elke {{plant.water_day}} dagen</li>
+                <li><img class="icon" src="../../../../../assets/icons/sun.png" alt="sunIcon">{{plant.suns_hday}} uur per dag</li>
+              </ul>
             </div>
-        </ng-container>
-  
-    </div>
-</div> -->
+            <button class="btn" (click)="openPlantDialog(plant.id)" >meer info</button>
+          </div>
+        </div>
+      </ng-container>
+
+</div>
