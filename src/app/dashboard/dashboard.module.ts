@@ -77,5 +77,6 @@ const routes: Routes = [
     MatAutocompleteModule,
     MatDialogModule,
   ],
+  entryComponents: [PlantDialogComponent],
 })
 export class DashboardModule {}

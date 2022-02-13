@@ -1,27 +1,40 @@
 <div class="container-fluid">
   <div class="input-group">
-    <input #PlantName type="search" class="form-control rounded" placeholder="zoeken" aria-label="Search" aria-describedby="search-addon" />
-    <button type="button" class="btn" (click)="searchPlant(PlantName.value)">zoeken</button>
+    <input #plantName type="search" matInput class="form-control rounded" placeholder="zoeken" aria-label="Search"
+      aria-describedby="search-addon" (keyup)="searchPlantDialog(plantName.value)" />
+    <!-- [matAutocomplete]="auto"
+      <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let option of plants$" [value]="option">
+        {{option.name}}
+      </mat-option>
+    </mat-autocomplete> -->
   </div>
-  <div class="container">
+  <div class="container" *ngIf="plantName">
     <div class="row justify-content-center">
       <ng-container *ngFor="let plant of plants$">
         <div class="card col-md-4 col-xl-3">
-          <div class="card-header"><h2 class="card-title">{{plant.name}}</h2>
+          <div class="card-header">
+            <h2 class="card-title">{{plant.name}}</h2>
           </div>
           <img class="card-img-top img-responsive" src="./assets/plantsImages/{{plant.image}}" alt="{{plant.name}}">
           <div class="card-body">
             <small>{{plant.level}}</small>
-            <div >
-              <ul> 
-                <li><img class="icon" src="../../../../../assets/icons/bemesting.png" alt="bemestingIcon">Elke {{plant.fertilizer_day}} dagen</li>
-                <li><img class="icon" src="../../../../../assets/icons/water.png" alt="waterIcon">Elke {{plant.water_day}} dagen</li>
-                <li><img class="icon" src="../../../../../assets/icons/sun.png" alt="sunIcon">{{plant.suns_hday}} uur per dag</li>
+            <div>
+              <ul>
+                <li><img class="icon" src="../../../../../assets/icons/bemesting.png" alt="bemestingIcon">Elke
+                  {{plant.fertilizer_day}} dagen</li>
+                <li><img class="icon" src="../../../../../assets/icons/water.png" alt="waterIcon">Elke
+                  {{plant.water_day}} dagen</li>
+                <li><img class="icon" src="../../../../../assets/icons/sun.png" alt="sunIcon">{{plant.suns_hday}} uur
+                  per dag</li>
               </ul>
             </div>
-            <button class="btn" (click)="openPlantDialog(plant.id)" >meer info</button>
+            <div class="card-footer">
+              <button class="btn" (click)="openPlantDialog(plant.id)">meer info</button>
+              <button *ngIf="search" class="btn m-3" (click)="ngOnInit()">All Planten</button>
+            </div>
           </div>
         </div>
       </ng-container>
 
-</div>
+    </div>
