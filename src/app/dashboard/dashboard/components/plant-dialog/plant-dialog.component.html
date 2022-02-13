@@ -1,48 +1,58 @@
-<h2 mat-dialog-title  class="d-flex justify-content-center">Aalbes</h2>
-<mat-dialog-content class="mat-typography">
+<ng-container *ngFor="let plant of plant$">
+  <h2 *ngIf="recieveId" mat-dialog-title class="d-flex justify-content-center">
+    {{ plant.name }}
+  </h2>
+  <hr />
+  <mat-dialog-content class="mat-typography">
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-4" >
-                <div class="row justify-content-center">
-                    <div class="col-6" >
-                        <img  class="img-responsive" style="height: 150px;width: 150px;" src="./assets/plantsImages/aalbes.jpg" alt="aalbes.jpg" >
-                    </div>
-                </div>  
-                <div class="row mt-5 justify-content-center">
-                    <div class="col" >
-                        <p>vergt wat werk of aandacht</p>
-                    <p>doorlevende groente</p>
-                    <p>matig tot veel, heeft ongeveer 1 keer per week water nodig, mag nooit helemaal droog komen te staan</p>
-                    </div>
-                </div>  
+      <div class="row justify-content-center">
+        <div class="col-md-4">
+          <div class="row justify-content-space-between">
+            <img class="img-responsive" style="height: 200px; width: 250px"
+              src="./assets/plantsImages/{{ plant.image }}" alt="{{ plant.name }}" />
+          </div>
+          <div class="row mt-5 justify-content-center">
+            <div class="col">
+              <p>{{ plant.description }}</p>
+              <p>{{ plant.frost }}</p>
+              <p>{{ plant.watering }}</p>
             </div>
-            <div class="col-md-8">
-                <div class="row justify-content-center">
-                    <div class="col-md-6" >
-                        <h3>harvest</h3>
-                        <p>Wanneer de vogels aan je aalbessen beginnen te eten weet je dat ze rijp zijn. Doe elke dag een plukronde.</p>
-                    </div>
-                    <div class="col-md-6">
-                        <h3>tip</h3>
-                        <p>Varieer in je besjes, zaai rode, witte, cassis, stekelbessen.</p>
-                    </div>
-                </div>
-                <div class="row justify-content-center">
-                    <div class="col-md-6" >
-                        <h3>attention</h3>
-                    <p>Span over je bessen een net tegen de vogels. Bessenstruiken moet je elk jaar snoeien.</p>
-                    </div>
-                    <div class="col-md-6">
-                        <h3>keep</h3>
-                    <p>Rood fruit bewaart amper een paar dagen, op een koele, donkere plek. Houd het uit de koelkast. Pluk het liever op het moment zelf of maak er meteen een coulis of confituur van.</p>
-                    </div>
-                </div>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <div class="row justify-content-center">
+            <div class="col-md-6">
+              <h3>harvest</h3>
+              <p>
+                {{ plant.harvest }}
+              </p>
             </div>
+            <div class="col-md-6">
+              <h3>tip</h3>
+              <p>{{ plant.tip }}</p>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-md-6">
+              <h3>attention</h3>
+              <p>
+                {{ plant.attention }}
+              </p>
+            </div>
+            <div class="col-md-6">
+              <h3>keep</h3>
+              <p>
+                {{ plant.keep }}
+              </p>
+            </div>
+          </div>
         </div>
-        <div class="d-flex flex-row-reverse">
-            <button mat-button class="p-2" >toevoegen</button>
-            <button mat-button class="p-2">exit</button>
-        </div>
-        
+      </div>
+      <hr />
+      <div class="d-flex flex-row-reverse">
+        <button mat-button class="p-2">toevoegen</button>
+        <button mat-button (click)="close()" class="p-2">exit</button>
+      </div>
     </div>
-</mat-dialog-content>
+  </mat-dialog-content>
+</ng-container>

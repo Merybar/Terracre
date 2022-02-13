@@ -1,1 +1,9 @@
+.mat-button {
+  color: #efefef;
+  background-color: #74A45D;
+  margin: 5px;
 
+  &:hover {
+    background: #013113 !important;
+  }
+}
