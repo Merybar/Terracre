@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { PlantsModule } from '../dashboard/plants.module';
+
+import { PlantModule } from '../modules/plant.module';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -13,13 +14,19 @@ const httpOptions = {
   providedIn: 'root',
 })
 export class ApiService {
-  plantsUrl: string = '';
+  url: string = 'http://the300.be/api/';
 
-  constructor(private http: HttpClient) {
-    this.plantsUrl = 'http://the300.be/api/plants';
+  constructor(private http: HttpClient) {}
+
+  showAllPlants(): Observable<PlantModule[]> {
+    return this.http.get<PlantModule[]>(this.url + 'plants').pipe();
   }
 
-  getPlanten(): Observable<PlantsModule[]> {
-    return this.http.get<PlantsModule[]>('http://the300.be/api/plants').pipe();
+  showPlant(id: number): Observable<PlantModule[]> {
+    return this.http.get<PlantModule[]>(this.url + 'plant/' + id).pipe();
+  }
+
+  searchPlant(name: string): Observable<PlantModule[]> {
+    return this.http.get<PlantModule[]>(this.url + 'plants/' + name).pipe();
   }
 }
