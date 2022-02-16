@@ -1,11 +1,15 @@
-<mat-toolbar >
+<mat-toolbar>
     <mat-toolbar-row class="justify-content-between">
-        <button mat-icon-button  class="example-icon" aria-label="Example icon-button with menu icon" (click)="toggleAction()">
-            <mat-icon>format_align_left</mat-icon>
-        </button>
-        <div class="row mr-2 ml-auto">
-            <img src="./assets/images/logo.png" alt="" class="logo-image mr-1 p-2" />
+        <div class="logo-menu">
+            <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon"
+                (click)="toggleAction()">
+                <mat-icon>menu</mat-icon>
+            </button>
+            <div class="row mr-2 ml-auto ">
+                <img src="./assets/images/logo2.png" alt="" class="logo-image" />
+            </div>
         </div>
+
         <div class="row mr-2 ml-auto">
             <ul class="row m-0 align-items-center">
                 <li>
@@ -19,7 +23,7 @@
                             <mat-icon>account_box</mat-icon>
                             Mijn account
                         </button>
-                        <button mat-menu-item>
+                        <button mat-menu-item [routerLink]="['/login']" routerLinkActive="router-link-active">
                             <mat-icon>exit_to_app</mat-icon>
                             Logout
                         </button>
@@ -28,4 +32,4 @@
             </ul>
         </div>
     </mat-toolbar-row>
-</mat-toolbar> 
+</mat-toolbar>
