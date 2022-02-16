@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RouterModule, Routes } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -20,6 +21,9 @@ import { AlarmsComponent } from './dashboard/components/alarms/alarms.component'
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatDialogModule } from '@angular/material/dialog';
 import { PlantDialogComponent } from './dashboard/components/plant-dialog/plant-dialog.component';
+// import { UserDialogComponent } from './dashboard/components/dialog-components/user-dialog/user-dialog.component';
+// import { AddEditUserDialogComponent } from './dashboard/components/dialog-components/add-edit-user-dialog/add-edit-user-dialog.component';
+import { MatInputModule } from '@angular/material/input';
 
 const routes: Routes = [
   {
@@ -76,6 +80,8 @@ const routes: Routes = [
     LayoutModule,
     MatAutocompleteModule,
     MatDialogModule,
+    MatInputModule,
+    ReactiveFormsModule,
   ],
   entryComponents: [PlantDialogComponent],
 })

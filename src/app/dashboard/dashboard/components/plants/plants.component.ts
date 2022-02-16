@@ -3,7 +3,7 @@ import { ApiService } from 'src/app/service/api.service';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { PlantDialogComponent } from '../plant-dialog/plant-dialog.component';
 import { PlantModule } from 'src/app/modules/plant.module';
-import { Subscription, observable, Observable } from 'rxjs';
+import { Subscription, Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { FormControl } from '@angular/forms';
 
@@ -14,17 +14,27 @@ import { FormControl } from '@angular/forms';
 })
 export class PlantsComponent implements OnInit, OnDestroy {
   plant$!: PlantModule[];
-  // plants$!: PlantModule[];
+
   subscribe!: Subscription;
+  // search
   searched!: boolean;
   mycontrol = new FormControl();
-  filteredOptions!: Observable<string[]>;
+  filteredOptions!: Observable<any[]>;
   displayFn(subject: { name: any }) {
     return subject ? subject.name : undefined;
   }
 
   constructor(private api: ApiService, private matDialog: MatDialog) {}
   ngOnInit(): void {
+    this.filteredOptions = this.mycontrol.valueChanges.pipe(
+      // startWith(''),
+      map((term) => {
+        return this.plant$.filter((option) =>
+          option.name.toLowerCase().includes(term.toLowerCase())
+        );
+      })
+    );
+
     this.getAllPlants();
   }
   getAllPlants() {
@@ -34,9 +44,6 @@ export class PlantsComponent implements OnInit, OnDestroy {
     });
   }
   searchPlantDialog(plantName: string) {
-    if (typeof plantName != 'string') {
-      this.getAllPlants();
-    }
     if (plantName === '' || plantName === null) {
       this.getAllPlants();
     } else {

@@ -1,10 +1,11 @@
 <div class="container-fluid">
   <div class="input-group">
-    <!-- [formControl]="mycontrol" -->
     <input #plantName type="search" matInput [matAutocomplete]="auto" class="form-control rounded" placeholder="zoeken"
-      aria-label="Search" aria-describedby="search-addon" (keyup)="searchPlantDialog(plantName.value)" />
+      [formControl]="mycontrol" aria-label="Search" aria-describedby="search-addon"
+      (keyup)="searchPlantDialog(plantName.value)" />
+
     <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
-      <mat-option *ngFor="let option of plant$" [value]="option">
+      <mat-option *ngFor="let option of filteredOptions | async " [value]="option">
         {{option.name}}
       </mat-option>
     </mat-autocomplete>
