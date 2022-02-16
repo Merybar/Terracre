@@ -1,58 +1,66 @@
 <ng-container *ngFor="let plant of plant$">
-  <h2 *ngIf="recievePlantId" mat-dialog-title class="d-flex justify-content-center">
+  <h2 *ngIf="recievePlantId" mat-dialog-title class="plant-name">
     {{ plant.name }}
   </h2>
   <hr />
-  <mat-dialog-content class="mat-typography">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-md-4">
-          <div class="row justify-content-space-between">
-            <img class="img-responsive" style="height: 200px; width: 250px"
-              src="./assets/plantsImages/{{ plant.image }}" alt="{{ plant.name }}" />
-          </div>
-          <div class="row mt-5 justify-content-center">
-            <div class="col">
-              <p>{{ plant.description }}</p>
-              <p>{{ plant.frost }}</p>
-              <p>{{ plant.watering }}</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-8">
-          <div class="row justify-content-center">
-            <div class="col-md-6">
-              <h3>harvest</h3>
-              <p>
-                {{ plant.harvest }}
-              </p>
-            </div>
-            <div class="col-md-6">
-              <h3>tip</h3>
-              <p>{{ plant.tip }}</p>
-            </div>
-          </div>
-          <div class="row justify-content-center">
-            <div class="col-md-6">
-              <h3>attention</h3>
-              <p>
-                {{ plant.attention }}
-              </p>
-            </div>
-            <div class="col-md-6">
-              <h3>keep</h3>
-              <p>
-                {{ plant.keep }}
-              </p>
-            </div>
-          </div>
-        </div>
+  <mat-dialog-content class="plant-detail">
+    <div class="row row-first">
+
+      <div class="col-lg-4 image-plant">
+        <img style="height: 270px;width: 270;" src="./assets/plantsImages/{{ plant.image }}" alt="{{ plant.name }}" />
       </div>
-      <hr />
-      <div class="d-flex flex-row-reverse">
-        <button mat-button class="p-2">toevoegen</button>
-        <button mat-button (click)="close()" class="p-2">exit</button>
+
+
+      <div class="col-lg-4 distance ">
+        <span> <img class="icon" src="../../../../../assets/icons/distance-col.png"> rijen afstand:
+          {{plant.collumDistance_cm}} cm</span>
+        <span> <img class="icon" src="../../../../../assets/icons/distance-row.png">plantenafstand:
+          {{plant.rowDistance_cm}} cm</span>
+        <span> <img class="icon" src="../../../../../assets/icons/distance-deep.png">zaaidiepte:
+          {{plant.deepDistance_cm}} cm</span>
       </div>
+
+      <div class="col-lg-4 list">
+        <p> <img class="icon" src="../../../../../assets/icons/eye.png">{{ plant.description }}</p>
+        <p> <img class="icon" src="../../../../../assets/icons/snow.png">{{ plant.frost }}</p>
+        <p> <img class="icon" src="../../../../../assets/icons/water.png">{{ plant.watering }}</p>
+        <p> <img class="icon" src="../../../../../assets/icons/sun.png">minstens {{ plant.suns_hday }} zon per dag</p>
+        <p> <img class="icon" src="../../../../../assets/icons/bemesting.png">elke {{ plant.fertilizer_day }} dagen
+          bemesting</p>
+
+      </div>
+
+    </div>
+    <hr>
+    <div class="row row-secend">
+      <div class="col-lg-3 col-md-6 harvest ">
+        <h3>OOGSTEN</h3>
+        <p>
+          {{ plant.harvest }}
+        </p>
+      </div>
+      <div class="col-lg-3 col-md-6 tip">
+        <h3>TIP</h3>
+        <p>{{ plant.tip }}</p>
+      </div>
+      <div class="col-lg-3 col-md-6 keep">
+        <h3>BEWAREN</h3>
+        <p>
+          {{ plant.keep }}
+        </p>
+      </div>
+      <div class="col-lg-3 col-md-6 attention">
+        <h3>OPGELET</h3>
+        <p>
+          {{ plant.attention }}
+        </p>
+      </div>
+
+    </div>
+    <hr>
+    <div class="d-flex flex-row-reverse">
+      <button mat-button class="p-2">toevoegen</button>
+      <button mat-button (click)="close()" class="p-2">exit</button>
     </div>
   </mat-dialog-content>
 </ng-container>

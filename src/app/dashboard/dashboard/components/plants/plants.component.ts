@@ -26,6 +26,16 @@ export class PlantsComponent implements OnInit, OnDestroy {
 
   constructor(private api: ApiService, private matDialog: MatDialog) {}
   ngOnInit(): void {
+    this.searchFilter();
+    this.getAllPlants();
+  }
+  getAllPlants() {
+    this.subscribe = this.api.showAllPlants().subscribe((data) => {
+      this.plant$ = data;
+      this.searched = false;
+    });
+  }
+  searchFilter() {
     this.filteredOptions = this.mycontrol.valueChanges.pipe(
       // startWith(''),
       map((term) => {
@@ -34,14 +44,6 @@ export class PlantsComponent implements OnInit, OnDestroy {
         );
       })
     );
-
-    this.getAllPlants();
-  }
-  getAllPlants() {
-    this.subscribe = this.api.showAllPlants().subscribe((data) => {
-      this.plant$ = data;
-      this.searched = false;
-    });
   }
   searchPlantDialog(plantName: string) {
     if (plantName === '' || plantName === null) {

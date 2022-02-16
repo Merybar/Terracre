@@ -1,3 +1,54 @@
+// mat-dialog-container#mat-dialog-0 {
+//   background: #013113;
+//   color: #efefef;
+// }
+
+.plant-name {
+  text-align: center;
+  font-variant: all-small-caps;
+  font-size: xx-large;
+}
+
+.plant-detail {
+  height: 100%;
+  width: auto;
+
+}
+
+.icon {
+  margin-right: 15px;
+  height: 30px;
+  width: 30px;
+}
+
+.row-first {
+  justify-content: space-evenly;
+  margin-bottom: 15px;
+
+}
+
+.distance {
+  display: grid;
+  padding: 15px;
+
+  span {
+    margin: 5px;
+  }
+
+  .icon {
+    height: 15px;
+    width: 15px;
+  }
+}
+
+.row-secend h3 {
+  font-weight: 600;
+
+}
+
+
+
+
 .mat-button {
   color: #efefef;
   background-color: #74A45D;
