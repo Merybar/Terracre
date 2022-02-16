@@ -1,40 +1,48 @@
 .grid-container {
   margin: 20px;
 }
+
 .card {
   color: #013113;
   text-align: center;
-  margin:15px 40px;
-  background-color:#efefef ;
+  margin: 15px 40px;
+  background-color: #efefef;
 }
+
 .card img {
   transition: 0.3s ease-in-out;
 }
+
 .card img:hover {
   transition: 0.3s ease-in-out;
   transform: scale(1.1);
 }
-.card-title{
+
+.card-title {
   color: #efefef;
   margin: 0px;
 }
-ul{
+
+ul {
   list-style: none;
   font-size: medium;
-  text-align:left;
-}
-.icon{
-  margin-right: 15px;
-}
-.btn{
-  color: #efefef;
-  background-color: #74A45D;
-  &:hover {
-    background: #013113 !important;
-}
+  text-align: left;
 }
 
-.card-header{
+.icon {
+  margin-right: 15px;
+}
+
+.btn {
+  color: #efefef;
+  background-color: #74A45D;
+
+  &:hover {
+    background: #013113 !important;
+  }
+}
+
+.card-header {
   font-size: 30px;
   background-color: #013113;
 }

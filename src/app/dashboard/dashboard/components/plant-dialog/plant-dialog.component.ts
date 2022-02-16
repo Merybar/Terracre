@@ -9,7 +9,7 @@ import { ApiService } from 'src/app/service/api.service';
   styleUrls: ['./plant-dialog.component.scss'],
 })
 export class PlantDialogComponent {
-  recieveId: any;
+  recievePlantId: any;
   plant$!: PlantModule[];
 
   constructor(
@@ -18,8 +18,8 @@ export class PlantDialogComponent {
     // @Inject(MAT_DIALOG_DATA) public data: any
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
-    this.recieveId = data.id;
-    this.api.showPlant(this.recieveId).subscribe((data) => {
+    this.recievePlantId = data.id;
+    this.api.getPlant(this.recievePlantId).subscribe((data) => {
       this.plant$ = data;
       console.log(this.plant$);
     });

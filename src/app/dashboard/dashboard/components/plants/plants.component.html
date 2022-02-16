@@ -1,17 +1,17 @@
 <div class="container-fluid">
   <div class="input-group">
-    <input #plantName type="search" matInput class="form-control rounded" placeholder="zoeken" aria-label="Search"
-      aria-describedby="search-addon" (keyup)="searchPlantDialog(plantName.value)" />
-    <!-- [matAutocomplete]="auto"
-      <mat-autocomplete #auto="matAutocomplete">
-      <mat-option *ngFor="let option of plants$" [value]="option">
+    <!-- [formControl]="mycontrol" -->
+    <input #plantName type="search" matInput [matAutocomplete]="auto" class="form-control rounded" placeholder="zoeken"
+      aria-label="Search" aria-describedby="search-addon" (keyup)="searchPlantDialog(plantName.value)" />
+    <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+      <mat-option *ngFor="let option of plant$" [value]="option">
         {{option.name}}
       </mat-option>
-    </mat-autocomplete> -->
+    </mat-autocomplete>
   </div>
-  <div class="container" *ngIf="plantName">
+  <div class="container">
     <div class="row justify-content-center">
-      <ng-container *ngFor="let plant of plants$">
+      <ng-container *ngFor="let plant of plant$">
         <div class="card col-md-4 col-xl-3">
           <div class="card-header">
             <h2 class="card-title">{{plant.name}}</h2>
@@ -31,7 +31,7 @@
             </div>
             <div class="card-footer">
               <button class="btn" (click)="openPlantDialog(plant.id)">meer info</button>
-              <button *ngIf="search" class="btn m-3" (click)="ngOnInit()">All Planten</button>
+              <button *ngIf="searched" class="btn m-3" (click)="ngOnInit()">All Planten</button>
             </div>
           </div>
         </div>
