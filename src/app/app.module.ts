@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { ApiService } from './service/api.service';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, RegisterComponent],
@@ -16,7 +17,7 @@ import { RegisterComponent } from './register/register.component';
     BrowserAnimationsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [ApiService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

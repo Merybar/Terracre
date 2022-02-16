@@ -6,6 +6,7 @@ import { PlantModule } from '../modules/plant.module';
 import { CommunityModule } from '../modules/community.module';
 import { UserModule } from '../modules/user.module';
 import { InvitationModule } from '../modules/invitation.module';
+import { PlantGardenModule } from '../modules/plant-garden.module';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -37,6 +38,15 @@ export class ApiService {
 
   getSearchPlant(name: string): Observable<PlantModule[]> {
     return this.http.get<PlantModule[]>(this.url + 'plants/' + name).pipe();
+  }
+  addPlant(data: PlantGardenModule): Observable<PlantGardenModule[]> {
+    return this.http
+      .post<PlantGardenModule[]>(
+        this.url + 'addPlantToGarden/',
+        data,
+        httpOptions
+      )
+      .pipe();
   }
 
   // ##### Community #####
