@@ -10,14 +10,3 @@ export class UserModule {
     public role: string
   ) {}
 }
-export class AddUserModule {
-  constructor(
-    public invitationId: number,
-    public firstName: string,
-    public lastName: string,
-    public email: string,
-    public password: string,
-    public created_at: string,
-    public role: string
-  ) {}
-}

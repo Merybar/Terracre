@@ -24,6 +24,8 @@ import { PlantDialogComponent } from './dashboard/components/plant-dialog/plant-
 // import { UserDialogComponent } from './dashboard/components/dialog-components/user-dialog/user-dialog.component';
 // import { AddEditUserDialogComponent } from './dashboard/components/dialog-components/add-edit-user-dialog/add-edit-user-dialog.component';
 import { MatInputModule } from '@angular/material/input';
+import { AddEditMemberDialogComponent } from './dashboard/components/add-edit-member-dialog/add-edit-member-dialog.component';
+import { InfoMemberDialogComponent } from './dashboard/components/info-member-dialog/info-member-dialog.component';
 
 const routes: Routes = [
   {
@@ -65,6 +67,8 @@ const routes: Routes = [
     NotesComponent,
     AlarmsComponent,
     PlantDialogComponent,
+    AddEditMemberDialogComponent,
+    InfoMemberDialogComponent,
   ],
   imports: [
     CommonModule,

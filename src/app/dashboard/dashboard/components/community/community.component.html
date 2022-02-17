@@ -3,20 +3,35 @@
   <div id="chatContainer">
 
     <div id="sidebar">
+      <div id="row1">
+        <div id="searchBox">
+          <img width="13" src="../../../../../assets/icons/searchIcon.png" />
+          <input type="text" placeholder="zoeke ..." />
+        </div>
+      </div>
 
-      <div id="searchBox">
-        <img width="13" src="../../../../../assets/icons/searchIcon.png" />
-        <input type="text" placeholder="zoeke ..." />
-      </div>
       <div id="sidebarContent">
-        <div id="noMembers"> </div>
-        <div id="yesMembers"></div>
+        <!-- <div id="noMembers"> </div> -->
+        <div id="members" *ngFor="let member of member$">
+          <div class="picture">
+            <img class="rounded-circle image" src="../../../../../assets/images/{{member.avatar}}">
+          </div>
+          <div class="content">
+            <div class="memberDetail">
+              <div class="name">{{member.firstName}} {{member.lastName}}</div>
+              <div class="memberInfo">
+                <mat-icon>info</mat-icon>
+              </div>
+            </div>
+            <div class="email">{{member.email}}</div>
+          </div>
+        </div>
       </div>
-      <div id="sidebarHeader">
+      <div id="sidebarFooter">
         <button id="btn">voeg toe</button>
       </div>
     </div>
     <div id="chat"></div>
-
+    <!-- posts -->
   </div>
 </div>
