@@ -1,24 +1,53 @@
-<div class="grid-container">
-  <h1 class="mat-h1">Tuin</h1>
-  <mat-grid-list cols="2" rowHeight="350px">
-    <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
-      <mat-card class="dashboard-card">
-        <mat-card-header>
-          <mat-card-title>
-            {{card.title}}
-            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
-              <mat-icon>more_vert</mat-icon>
-            </button>
-            <mat-menu #menu="matMenu" xPosition="before">
-              <button mat-menu-item>Expand</button>
-              <button mat-menu-item>Remove</button>
-            </mat-menu>
-          </mat-card-title>
-        </mat-card-header>
-        <mat-card-content class="dashboard-card-content">
-          <div>Card Content Here</div>
-        </mat-card-content>
-      </mat-card>
-    </mat-grid-tile>
-  </mat-grid-list>
+<div id="container">
+  <div class="gardenRow" *ngFor="let garden of garden$">
+    <div class="gardenInfo">
+      <div class="gardenDetails">
+        <div class="details">
+          <h2>{{garden.name}}</h2>
+          <p>{{garden.street}} {{garden.city}} {{garden.country}}</p>
+          <p>{{garden.area_m}} m²</p>
+        </div>
+        <div class="edit">
+          <img (click)="editGarden(garden.id)" src="../../../../../assets/icons/editIcon.png"
+            style="width: 30px;height: 30px;margin: 5px; cursor: p;">
+        </div>
+      </div>
+      <div class="gardenPlantBtn">
+        <button routerLink="plant" class="btnn">Plant toevoegen</button>
+      </div>
+    </div>
+
+  </div>
+  <div class="gardenTable">
+
+
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Image</th>
+          <th scope="col">Name</th>
+          <th scope="col">Zonuur</th>
+          <th scope="col">Gebladerte</th>
+          <th scope="col">Bemesting</th>
+          <th scope="col">Water</th>
+          <th scope="col">Creëren op</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let plant of gardenPlants$">
+          <td>{{plant.image}}</td>
+          <td>{{plant.name}}</td>
+          <td>{{plant.suns_hday}}</td>
+          <td>{{plant.foliage_day}}</td>
+          <td>{{plant.fertilizer_day}}</td>
+          <td>{{plant.water_day}}</td>
+          <td>{{plant.created_at}}</td>
+        </tr>
+
+      </tbody>
+    </table>
+
+
+
+  </div>
 </div>

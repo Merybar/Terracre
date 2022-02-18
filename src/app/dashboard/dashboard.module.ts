@@ -28,6 +28,11 @@ import { AddEditMemberDialogComponent } from './dashboard/components/add-edit-me
 import { InfoMemberDialogComponent } from './dashboard/components/info-member-dialog/info-member-dialog.component';
 import { PostComponent } from './dashboard/components/community/post/post.component';
 import { MatRadioModule } from '@angular/material/radio';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { GardenEditDialogComponent } from './dashboard/components/garden-edit-dialog/garden-edit-dialog.component';
+import { GardenCreatedDialogComponent } from './dashboard/components/garden-created-dialog/garden-created-dialog.component';
 
 const routes: Routes = [
   {
@@ -72,6 +77,8 @@ const routes: Routes = [
     AddEditMemberDialogComponent,
     InfoMemberDialogComponent,
     PostComponent,
+    GardenEditDialogComponent,
+    GardenCreatedDialogComponent,
   ],
   imports: [
     CommonModule,
@@ -92,6 +99,9 @@ const routes: Routes = [
     MatSelectModule,
     MatFormFieldModule,
     MatRadioModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
   ],
   entryComponents: [
     PlantDialogComponent,
@@ -99,4 +109,4 @@ const routes: Routes = [
     AddEditMemberDialogComponent,
   ],
 })
-export class DashboardModule {}
+export class DashboardModule { }

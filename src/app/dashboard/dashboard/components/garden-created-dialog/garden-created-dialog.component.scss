@@ -1,0 +1,47 @@
+.mat-radio-button~.mat-radio-button {
+  margin-left: 16px;
+}
+
+
+
+
+.content {
+  height: 550px;
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+h1 {
+  text-align: center;
+  font-weight: bold;
+}
+
+hr {
+  height: 3px;
+}
+
+.mat-radio-group {
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 15px;
+}
+
+#btn {
+  color: #efefef;
+  background-color: #74A45D;
+  width: 100%;
+  height: 40px;
+  border-radius: 5px;
+  font-size: 18px;
+  font-family: sans-serif;
+  font-weight: 200;
+  border-style: none;
+  margin-left: 5px;
+
+
+  &:hover {
+    background: #013113 !important;
+  }
+}

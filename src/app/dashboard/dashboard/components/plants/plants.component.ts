@@ -24,7 +24,7 @@ export class PlantsComponent implements OnInit, OnDestroy {
     return subject ? subject.name : undefined;
   }
 
-  constructor(private api: ApiService, private matDialog: MatDialog) {}
+  constructor(private api: ApiService, private matDialog: MatDialog) { }
   ngOnInit(): void {
     this.searchFilter();
     this.getAllPlants();
@@ -62,6 +62,7 @@ export class PlantsComponent implements OnInit, OnDestroy {
     };
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
+
 
     this.matDialog.open(PlantDialogComponent, dialogConfig);
   }

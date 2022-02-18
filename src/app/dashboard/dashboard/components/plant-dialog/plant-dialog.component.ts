@@ -11,6 +11,7 @@ import { ApiService } from 'src/app/service/api.service';
 })
 export class PlantDialogComponent {
   recievePlantId: any;
+  gardenID: any;
   plant$!: PlantModule[];
   addPlantObj$!: PlantGardenModule;
   modalCtrl: any;
@@ -21,17 +22,16 @@ export class PlantDialogComponent {
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.recievePlantId = data.id;
-
+    this.gardenID = localStorage.getItem("gardenId");
     this.api.getPlant(this.recievePlantId).subscribe((data) => {
       this.plant$ = data;
-      console.log(this.plant$);
     });
   }
 
   addPlantToGarden() {
     this.addPlantObj$ = {
       plant_id: this.recievePlantId,
-      garden_id: 1,
+      garden_id: this.gardenID,
     };
     this.api.addPlant(this.addPlantObj$).subscribe();
     this.dialogRef.close();

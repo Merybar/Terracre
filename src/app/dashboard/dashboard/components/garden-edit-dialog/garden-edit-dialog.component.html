@@ -1,0 +1,51 @@
+<div class="content">
+    <form (ngSubmit)="putGarden()" [formGroup]="gardenForm">
+        <h1>Tuin bijwerken</h1>
+        <hr>
+        <div>
+            <p>
+                <mat-form-field>
+                    <mat-label>Garden name</mat-label>
+                    <input matInput placeholder="Placeholder" formControlName="name">
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field>
+                    <mat-label>length_cm</mat-label>
+                    <input matInput placeholder="Placeholder" formControlName="length_cm">
+                </mat-form-field>
+            </p>
+
+            <p>
+                <mat-form-field>
+                    <mat-label>width_cm</mat-label>
+                    <input matInput placeholder="Placeholder" formControlName="width_cm">
+
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field>
+                    <mat-label>street</mat-label>
+                    <input matInput placeholder="Placeholder" formControlName="street">
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field>
+                    <mat-label>city</mat-label>
+                    <input matInput placeholder="Placeholder" formControlName="city">
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field>
+                    <mat-label>country</mat-label>
+                    <input matInput placeholder="Placeholder" formControlName="country">
+                </mat-form-field>
+            </p>
+        </div>
+
+    </form>
+    <div>
+        <button id="btn" (click)="putGarden()">Opslaan</button>
+    </div>
+
+</div>

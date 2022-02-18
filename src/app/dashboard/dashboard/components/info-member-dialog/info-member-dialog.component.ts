@@ -16,7 +16,6 @@ export class InfoMemberDialogComponent {
   // recieveUserId => get user ID from localStorage
   recieveUserId: any;
   member$!: UserModule[];
-  memberPost$!: PostModule[];
 
   constructor(
     private api: ApiService,
@@ -34,15 +33,6 @@ export class InfoMemberDialogComponent {
   close() {
     this.dialogRef.close();
   }
-  // memberPost() {
-  // this.api.getUserPost(this.recieveMemberId).subscribe((data) => {
-  //   this.memberPost$ = data;
-  //   console.log(this.memberPost$);
-  // this.dialogRef
-  //      .afterClosed()
-  //      .subscribe((result) => (this.recieveMemberPost$ = result));
-  //   });
-  // }
   deleteMember() {
     console.log(this.recieveMemberId);
     console.log(this.recieveUserId);

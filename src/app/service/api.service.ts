@@ -6,7 +6,7 @@ import { PlantModule } from '../modules/plant.module';
 import { CommunityModule, PostModule } from '../modules/community.module';
 import { UserModule } from '../modules/user.module';
 import { InvitationModule } from '../modules/invitation.module';
-import { PlantGardenModule } from '../modules/plant-garden.module';
+import { AddGardenModule, PlantGardenModule, TableGardenModule } from '../modules/plant-garden.module';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -20,7 +20,7 @@ const httpOptions = {
 export class ApiService {
   url: string = 'http://the300.be/api/';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   // ##### PLANTS #####
 
@@ -81,5 +81,17 @@ export class ApiService {
       .pipe();
   }
 
-  // ##### Community #####
+  // ##### Garden #####
+  getGarden(): Observable<[]> {
+    return this.http.get<[]>(this.url + 'garden').pipe();
+  }
+  getGardenPlants(): Observable<TableGardenModule[]> {
+    return this.http.get<TableGardenModule[]>(this.url + 'gardenPlants').pipe();
+  }
+  updateGarden(data: any, id: number): Observable<AddGardenModule[]> {
+    return this.http.put<AddGardenModule[]>(this.url + 'garden/' + id, data, httpOptions).pipe();
+  }
+  saveGarden(data: any): Observable<AddGardenModule[]> {
+    return this.http.post<AddGardenModule[]>(this.url + 'garden', data, httpOptions).pipe();
+  }
 }
