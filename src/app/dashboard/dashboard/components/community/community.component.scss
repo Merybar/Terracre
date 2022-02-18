@@ -5,52 +5,39 @@
   #chatContainer {
     margin: auto;
     height: 100%;
-    background-color: #9cc887d0;
     box-shadow: -1px 1px 5px rgba(#333, 0.2);
     border-radius: 3px;
-    border-color: #013113;
     display: flex;
     flex-direction: row;
     overflow: hidden;
 
     #sidebar {
       flex-basis: 30%;
-      border-right: 1px solid #013113;
       display: flex;
       flex-direction: column;
-      background: #efefef;
 
-      #row1 {
+      #sidebarHeader {
+        flex-basis: 67px;
         display: flex;
-        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-right: 1px solid #e9e9e9;
+        background: #1b7209;
 
-        #searchBox {
-          flex-basis: 50px;
-          border-bottom: 1px solid #013113;
-          display: flex;
-          align-items: center;
-          justify-content: center;
+        #btn {
+          color: #efefef;
+          background-color: #74A45D;
+          width: 50%;
+          height: 70%;
+          border-radius: 5px;
+          font-size: 18px;
+          font-family: sans-serif;
+          font-weight: 200;
+          border-style: none;
 
-          img {
-            position: absolute;
-            left: 30px;
-          }
 
-          input {
-            width: calc(90% - 60px);
-            border: 1px solid #f2f2f2;
-            border: 1px solid #013113;
-            border-radius: 7px;
-            height: 70%;
-            padding-left: 60px;
-            color: #9a9a9a;
-            outline: none;
-
-            &::placeholder {
-              color: #9a9a9a;
-              font-weight: 100;
-            }
-
+          &:hover {
+            background: #013113 !important;
           }
         }
       }
@@ -58,6 +45,8 @@
       #sidebarContent {
         flex-grow: 1;
         overflow: auto;
+        background-color: #74A45D;
+        color: #efefef;
 
         #noMembers {
           padding-top: 30px;
@@ -75,11 +64,6 @@
           height: 67px;
           display: flex;
           padding-right: 5px;
-          transition: all 0.4s ease-in-out;
-
-          &:hover {
-            background-color: rgba(#ccc, 0.05);
-          }
 
           .picture {
             flex-basis: 73px;
@@ -92,74 +76,54 @@
               margin-top: 5px;
               height: 35px;
               width: 35px;
+              border: 1px solid #efefef;
             }
           }
 
           .content {
-            border-bottom: 1 solid #f2f2f2;
             flex-grow: 1;
-            padding: 19px 0px;
-            padding-right: 10px;
+            padding: 10px 0px;
+
+
 
             .memberDetail {
               display: flex;
               flex-direction: row;
               justify-content: space-between;
 
+
               .name {
                 color: #013113;
-                font-size: medium;
-                font-weight: 500;
+                font-size: 13px;
+                font-weight: 300;
               }
 
               .email {
                 color: #9a9a9a;
+                margin-top: -10px;
               }
+
+
             }
 
             .memberInfo {
               font-size: 13px;
               padding-top: -5px;
-              color: #013113;
+              color: #efefef;
               cursor: pointer;
+
             }
           }
 
         }
       }
 
-      #sidebarFooter {
-        flex-basis: 67px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-top: 1px solid #013113;
-
-        #btn {
-          color: #efefef;
-          background-color: #74A45D;
-          width: 80%;
-          height: 80%;
-          font-size: 18px;
-          font-family: sans-serif;
-          font-weight: 200;
-          border-style: none;
-
-
-          &:hover {
-            background: #013113 !important;
-          }
-        }
-      }
-
-
-
 
 
     }
 
-    // #chat {
-    //   // background: #9a9a9a;
-    // }
+    #container {
+      background-color: #f7f9fa;
+    }
   }
 }

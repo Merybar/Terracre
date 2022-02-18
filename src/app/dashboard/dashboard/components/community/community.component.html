@@ -3,11 +3,9 @@
   <div id="chatContainer">
 
     <div id="sidebar">
-      <div id="row1">
-        <div id="searchBox">
-          <img width="13" src="../../../../../assets/icons/searchIcon.png" />
-          <input type="text" placeholder="zoeke ..." />
-        </div>
+
+      <div id="sidebarHeader">
+        <button id="btn" (click)="openAddEditMemberDialog()">voeg toe</button>
       </div>
 
       <div id="sidebarContent">
@@ -19,19 +17,21 @@
           <div class="content">
             <div class="memberDetail">
               <div class="name">{{member.firstName}} {{member.lastName}}</div>
-              <div class="memberInfo">
+              <div (click)="openInfoMemberDialog(member.id)" class="memberInfo">
                 <mat-icon>info</mat-icon>
               </div>
             </div>
             <div class="email">{{member.email}}</div>
+            <hr>
           </div>
+
         </div>
       </div>
-      <div id="sidebarFooter">
-        <button id="btn">voeg toe</button>
-      </div>
+
     </div>
-    <div id="chat"></div>
-    <!-- posts -->
+    <div id="container">
+      <app-post></app-post>
+    </div>
+
   </div>
 </div>

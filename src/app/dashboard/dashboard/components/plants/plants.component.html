@@ -3,7 +3,7 @@
     <input #plantName type="search" matInput [matAutocomplete]="auto" class="form-control rounded" placeholder="zoeken"
       [formControl]="mycontrol" aria-label="Search" aria-describedby="search-addon"
       (keyup)="searchPlantDialog(plantName.value)" />
-
+    <!-- <mat-select></mat-select> -->
     <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
       <mat-option *ngFor="let option of filteredOptions | async " [value]="option">
         {{option.name}}

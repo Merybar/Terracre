@@ -1,9 +1,11 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Subscription } from 'rxjs/internal/Subscription';
-import { CommunityModule } from 'src/app/modules/community.module';
 import { InvitationModule } from 'src/app/modules/invitation.module';
 import { UserModule } from 'src/app/modules/user.module';
 import { ApiService } from 'src/app/service/api.service';
+import { AddEditMemberDialogComponent } from '../add-edit-member-dialog/add-edit-member-dialog.component';
+import { InfoMemberDialogComponent } from '../info-member-dialog/info-member-dialog.component';
 
 @Component({
   selector: 'app-community',
@@ -12,34 +14,39 @@ import { ApiService } from 'src/app/service/api.service';
 })
 export class CommunityComponent implements OnInit, OnDestroy {
   member$!: UserModule[];
-  posts$!: CommunityModule[];
+
   addMember$!: InvitationModule[];
   subscribe!: Subscription;
 
-  constructor(private api: ApiService) {}
+  constructor(private api: ApiService, private matDialog: MatDialog) {}
   ngOnInit(): void {
     this.showAllMembers();
-    this.showAllPosts();
   }
   showAllMembers() {
     this.subscribe = this.api.getAllusers().subscribe((data) => {
       this.member$ = data;
     });
   }
-  addMember() {}
-  delete() {}
-  searchMember() {}
-  showAllPosts() {
-    this.subscribe = this.api.getAllPosts().subscribe((data) => {
-      this.posts$ = data;
-    });
+
+  openAddEditMemberDialog() {
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+
+    this.matDialog.open(AddEditMemberDialogComponent, dialogConfig);
   }
-  deletePost(postId: number) {
-    this.subscribe = this.api.deletePost(postId).subscribe();
+  openInfoMemberDialog(memberId: number) {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.data = {
+      id: memberId,
+    };
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+
+    this.matDialog.open(InfoMemberDialogComponent, dialogConfig);
   }
-  addPost() {}
-  openAddEditMemberDialog() {}
-  openInfoMemberDialog() {}
+
   ngOnDestroy(): void {
     this.subscribe.unsubscribe;
   }

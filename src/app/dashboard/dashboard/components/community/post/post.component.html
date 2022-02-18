@@ -1,0 +1,28 @@
+<div id="posts">
+    <div class="postsHeader">
+
+    </div>
+    <div class="postsBody">
+        <div id="post" *ngFor="let post of posts$">
+            <div id="postsContent">
+                {{ post.text }}
+                <hr>
+                <div class="memberPost">
+                    <div class="memberName">{{post.firstName }} {{post.lastName}} </div>
+                    <div class="time">{{post.created_at| date:'d/M/yy, h:mm a' }}</div>
+                </div>
+                <div class="deletePost"><a (click)="deletePost(post.id)">Verwijdegen</a>
+                </div>
+            </div>
+            <hr>
+        </div>
+    </div>
+    <div class="postsFooter">
+        <div id="textarea">
+            <textarea matInput #text></textarea>
+        </div>
+        <div (click)="addPost(text)" id="sendIcon">
+            <i class="fas fa-location-arrow fa-lg "></i>
+        </div>
+    </div>
+</div>

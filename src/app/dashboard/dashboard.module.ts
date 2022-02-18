@@ -21,11 +21,13 @@ import { AlarmsComponent } from './dashboard/components/alarms/alarms.component'
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatDialogModule } from '@angular/material/dialog';
 import { PlantDialogComponent } from './dashboard/components/plant-dialog/plant-dialog.component';
-// import { UserDialogComponent } from './dashboard/components/dialog-components/user-dialog/user-dialog.component';
-// import { AddEditUserDialogComponent } from './dashboard/components/dialog-components/add-edit-user-dialog/add-edit-user-dialog.component';
+import { MatSelectModule } from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { AddEditMemberDialogComponent } from './dashboard/components/add-edit-member-dialog/add-edit-member-dialog.component';
 import { InfoMemberDialogComponent } from './dashboard/components/info-member-dialog/info-member-dialog.component';
+import { PostComponent } from './dashboard/components/community/post/post.component';
+import { MatRadioModule } from '@angular/material/radio';
 
 const routes: Routes = [
   {
@@ -69,6 +71,7 @@ const routes: Routes = [
     PlantDialogComponent,
     AddEditMemberDialogComponent,
     InfoMemberDialogComponent,
+    PostComponent,
   ],
   imports: [
     CommonModule,
@@ -86,7 +89,14 @@ const routes: Routes = [
     MatDialogModule,
     MatInputModule,
     ReactiveFormsModule,
+    MatSelectModule,
+    MatFormFieldModule,
+    MatRadioModule,
   ],
-  entryComponents: [PlantDialogComponent],
+  entryComponents: [
+    PlantDialogComponent,
+    InfoMemberDialogComponent,
+    AddEditMemberDialogComponent,
+  ],
 })
 export class DashboardModule {}

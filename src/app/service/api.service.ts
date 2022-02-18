@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map, Observable } from 'rxjs';
 
 import { PlantModule } from '../modules/plant.module';
-import { CommunityModule } from '../modules/community.module';
+import { CommunityModule, PostModule } from '../modules/community.module';
 import { UserModule } from '../modules/user.module';
 import { InvitationModule } from '../modules/invitation.module';
 import { PlantGardenModule } from '../modules/plant-garden.module';
@@ -42,7 +42,7 @@ export class ApiService {
   addPlant(data: PlantGardenModule): Observable<PlantGardenModule[]> {
     return this.http
       .post<PlantGardenModule[]>(
-        this.url + 'addPlantToGarden/',
+        this.url + 'addPlantToGarden',
         data,
         httpOptions
       )
@@ -53,6 +53,17 @@ export class ApiService {
   getAllPosts(): Observable<CommunityModule[]> {
     return this.http.get<CommunityModule[]>(this.url + 'community').pipe();
   }
+  getUserPost(id: number): Observable<PostModule[]> {
+    return this.http.get<PostModule[]>(this.url + 'userPost/' + id).pipe();
+  }
+  savePost(data: any): Observable<PostModule[]> {
+    return this.http
+      .post<PostModule[]>(this.url + 'post', data, httpOptions)
+      .pipe();
+  }
+  deletePost(id: number) {
+    return this.http.delete(this.url + 'post/' + id).pipe();
+  }
   getAllusers(): Observable<UserModule[]> {
     return this.http.get<UserModule[]>(this.url + 'users').pipe();
   }
@@ -61,11 +72,14 @@ export class ApiService {
   }
   addUser(data: any): Observable<InvitationModule[]> {
     return this.http
-      .post<InvitationModule[]>(this.url + 'invitation/', data)
+      .post<InvitationModule[]>(this.url + 'invitation', data, httpOptions)
       .pipe();
   }
-  deletePost(id: number) {
-    return this.http.delete(this.url + 'post/' + id).pipe();
+  deleteUser(memberId: number, userId: number) {
+    return this.http
+      .delete(this.url + 'user/' + memberId + '/' + userId)
+      .pipe();
   }
+
   // ##### Community #####
 }

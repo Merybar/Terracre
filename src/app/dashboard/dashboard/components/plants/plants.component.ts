@@ -4,7 +4,7 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { PlantDialogComponent } from '../plant-dialog/plant-dialog.component';
 import { PlantModule } from 'src/app/modules/plant.module';
 import { Subscription, Observable } from 'rxjs';
-import { map, startWith } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { FormControl } from '@angular/forms';
 
 @Component({

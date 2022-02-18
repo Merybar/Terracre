@@ -13,11 +13,11 @@ export class PlantDialogComponent {
   recievePlantId: any;
   plant$!: PlantModule[];
   addPlantObj$!: PlantGardenModule;
+  modalCtrl: any;
 
   constructor(
     private api: ApiService,
     private dialogRef: MatDialogRef<PlantDialogComponent>,
-    // @Inject(MAT_DIALOG_DATA) public data: any
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.recievePlantId = data.id;
@@ -34,6 +34,7 @@ export class PlantDialogComponent {
       garden_id: 1,
     };
     this.api.addPlant(this.addPlantObj$).subscribe();
+    this.dialogRef.close();
   }
 
   close() {

@@ -1,0 +1,36 @@
+#member-name {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+}
+
+.member-detail {
+  width: 235px;
+  height: 35px;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-top: 25px;
+
+  button {
+    color: #efefef;
+    background-color: #74A45D;
+    margin: 5px;
+    border: 0;
+    width: 85px;
+    height: 33px;
+    border-radius: 5px;
+
+    &:hover {
+      background: #013113 !important;
+    }
+  }
+}

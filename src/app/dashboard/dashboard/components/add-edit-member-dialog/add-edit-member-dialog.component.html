@@ -1,1 +1,45 @@
-<p>add-edit-member-dialog works!</p>
+<div class="content">
+    <form (ngSubmit)="invitation()" [formGroup]="memberForm">
+        <h1>Lid toevogen</h1>
+        <hr>
+        <mat-radio-group formControlName="role">
+            <mat-label>Kies de rol :</mat-label>
+            <mat-radio-button value="baas">Bass</mat-radio-button>
+            <mat-radio-button value="assistant">Assistant</mat-radio-button>
+        </mat-radio-group>
+        <div>
+            <p>
+                <mat-form-field>
+                    <mat-label>Voornaam</mat-label>
+                    <input matInput placeholder="Placeholder" formControlName="firstName">
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field>
+                    <mat-label>Achternaam</mat-label>
+                    <input matInput placeholder="Placeholder" formControlName="lastName">
+                </mat-form-field>
+            </p>
+
+            <p>
+                <mat-form-field>
+                    <mat-label>Email</mat-label>
+                    <input matInput placeholder="Placeholder" formControlName="email">
+
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field>
+                    <mat-label>Password</mat-label>
+                    <input matInput placeholder="Placeholder" formControlName="password">
+                </mat-form-field>
+            </p>
+        </div>
+
+    </form>
+    <div>
+        <button id="btn" (click)="invitation()">toevogen</button>
+        <button mat-dialog-close="" id="btn">terug</button>
+    </div>
+
+</div>
